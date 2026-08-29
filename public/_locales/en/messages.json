@@ -1,0 +1,44 @@
+{
+  "app_name": {
+    "message": "My Extension"
+  },
+  "app_description": {
+    "message": "A simple Chrome extension boilerplate"
+  },
+  "changelog_title": {
+    "message": "Changelog"
+  },
+  "changelog_empty": {
+    "message": "No releases yet."
+  },
+  "changelog_type_feat": {
+    "message": "Feature"
+  },
+  "changelog_type_fix": {
+    "message": "Fix"
+  },
+  "changelog_type_chore": {
+    "message": "Chore"
+  },
+  "changelog_type_refactor": {
+    "message": "Refactor"
+  },
+  "perm_storage_desc": {
+    "message": "Required to save your settings and feature preferences locally."
+  },
+  "perm_activeTab_desc": {
+    "message": "Required to run scripts on the current tab when you activate the extension."
+  },
+  "perm_scripting_desc": {
+    "message": "Required to inject content scripts into web pages."
+  },
+  "perm_tabs_desc": {
+    "message": "Required to read tab information and URLs."
+  },
+  "feature_example_name": {
+    "message": "Example Feature"
+  },
+  "feature_example_desc": {
+    "message": "A sample feature to demonstrate the system."
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "app_name": {
+    "message": "Minha Extensão"
+  },
+  "app_description": {
+    "message": "Um boilerplate simples para extensões Chrome"
+  },
+  "changelog_title": {
+    "message": "Histórico de Versões"
+  },
+  "changelog_empty": {
+    "message": "Nenhuma versão publicada ainda."
+  },
+  "changelog_type_feat": {
+    "message": "Novo"
+  },
+  "changelog_type_fix": {
+    "message": "Correção"
+  },
+  "changelog_type_chore": {
+    "message": "Manutenção"
+  },
+  "changelog_type_refactor": {
+    "message": "Refatoração"
+  },
+  "perm_storage_desc": {
+    "message": "Necessário para salvar suas configurações e preferências de features localmente."
+  },
+  "perm_activeTab_desc": {
+    "message": "Necessário para executar scripts na aba atual quando você ativa a extensão."
+  },
+  "perm_scripting_desc": {
+    "message": "Necessário para injetar scripts de conteúdo nas páginas web."
+  },
+  "perm_tabs_desc": {
+    "message": "Necessário para ler informações e URLs das abas."
+  },
+  "feature_example_name": {
+    "message": "Feature de Exemplo"
+  },
+  "feature_example_desc": {
+    "message": "Uma feature de exemplo para demonstrar o sistema."
+  }
+}
