@@ -5,24 +5,6 @@
   "app_description": {
     "message": "A simple Chrome extension boilerplate"
   },
-  "changelog_title": {
-    "message": "Changelog"
-  },
-  "changelog_empty": {
-    "message": "No releases yet."
-  },
-  "changelog_type_feat": {
-    "message": "Feature"
-  },
-  "changelog_type_fix": {
-    "message": "Fix"
-  },
-  "changelog_type_chore": {
-    "message": "Chore"
-  },
-  "changelog_type_refactor": {
-    "message": "Refactor"
-  },
   "perm_storage_desc": {
     "message": "Required to save your settings and feature preferences locally."
   },
@@ -34,11 +16,5 @@
   },
   "perm_tabs_desc": {
     "message": "Required to read tab information and URLs."
-  },
-  "feature_example_name": {
-    "message": "Example Feature"
-  },
-  "feature_example_desc": {
-    "message": "A sample feature to demonstrate the system."
   }
 }

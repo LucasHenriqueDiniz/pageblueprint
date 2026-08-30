@@ -53,15 +53,6 @@ export function Popup() {
           No features registered yet.
         </p>
       )}
-
-      <div className="mt-4 pt-3 border-t border-gray-200 dark:border-gray-700">
-        <button
-          onClick={() => chrome.tabs.create({ url: chrome.runtime.getURL('changelog.html') })}
-          className="text-xs text-blue-600 dark:text-blue-400 hover:underline"
-        >
-          {t('changelog_title')} →
-        </button>
-      </div>
     </div>
   )
 }
