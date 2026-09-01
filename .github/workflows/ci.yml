@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+# A action de pnpm não recebe 'version' — ela lê o campo packageManager do
+# package.json, que é o que mantém o CI e as máquinas locais na mesma versão.
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: 'pnpm'
+      - run: pnpm install --frozen-lockfile
+
+      # Este repo é boilerplate de extensão Chrome e não expõe script de lint
+      # nem de typecheck próprio — o build (vite + tsc por pacote) é o portão
+      # que existe. Se um desses scripts for adicionado, entra aqui.
+      - name: Build
+        run: pnpm run build
