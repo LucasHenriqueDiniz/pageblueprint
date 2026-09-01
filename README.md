@@ -14,19 +14,9 @@ A simple, fast, and scalable boilerplate for Chrome extensions using Manifest V3
 - ⚡ **Single Vite project** — no monorepo, no Turborepo complexity
 - 🧩 **Feature registry system** — toggle features on/off from popup
 - 🌍 **i18n ready** — English & Portuguese included
-- 📜 **Optional changelog page**
 - 📦 **One-command build** — popup, options, background, content
-- 🚀 **CLI scaffolding** — generate new extensions in seconds
 
 ## Quick Start
-
-### Create a new extension
-
-```bash
-npm run create-extension -- my-extension --description "My awesome extension" --feature my-feature
-```
-
-### Or clone and use directly
 
 ```bash
 git clone <this-repo> my-extension
@@ -57,7 +47,6 @@ src/
   content/        → content script
   popup/          → popup (React)
   options/        → options page (React)
-  changelog/      → changelog page (optional)
   core/
     config.ts
     storage.ts
@@ -84,19 +73,6 @@ registerFeature({
 ```
 
 Features automatically appear in the popup with toggle switches.
-
-## CLI Flags
-
-```bash
-npm run create-extension -- name \
-  --description "..." \
-  --feature my-feature \
-  --no-popup \
-  --options \
-  --no-content \
-  --no-background \
-  --no-changelog
-```
 
 ## License
 

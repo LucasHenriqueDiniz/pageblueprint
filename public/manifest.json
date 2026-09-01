@@ -25,11 +25,5 @@
   "icons": {
     "128": "icons/icon.png"
   },
-  "options_page": "options.html",
-  "web_accessible_resources": [
-    {
-      "resources": ["changelog.html", "changelog/*"],
-      "matches": ["<all_urls>"]
-    }
-  ]
+  "options_page": "options.html"
 }
