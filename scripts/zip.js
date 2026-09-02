@@ -10,7 +10,7 @@ const distPath = path.resolve(__dirname, '../dist')
 const zipPath = path.resolve(__dirname, '../dist-zip')
 
 if (!fs.existsSync(distPath)) {
-  console.error('Dist folder not found. Run npm run build first.')
+  console.error('Dist folder not found. Run pnpm run build first.')
   process.exit(1)
 }
 

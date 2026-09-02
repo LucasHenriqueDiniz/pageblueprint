@@ -16,3 +16,11 @@ tsconfig.tsbuildinfo
 # etc
 .DS_Store
 .idea
+
+# Claude Code's local permission file. Never commit it: allow-rules accumulate by
+# clicking, and a rule allowlisting a command with a token in it puts that token
+# in the repo.
+**/.claude/settings.local.json
+
+# derived board — regenerate with /hexagram:board, never track it
+.kanban.json
