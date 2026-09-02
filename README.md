@@ -21,15 +21,15 @@ A simple, fast, and scalable boilerplate for Chrome extensions using Manifest V3
 ```bash
 git clone <this-repo> my-extension
 cd my-extension
-npm install
-npm run dev
+pnpm install
+pnpm dev
 ```
 
 ### Build
 
 ```bash
-npm run build    # production build
-npm run zip      # generate Chrome Web Store zip
+pnpm build    # production build
+pnpm zip      # generate Chrome Web Store zip
 ```
 
 ### Load in Chrome
@@ -54,7 +54,7 @@ src/
     logger.ts
     feature-registry.ts
   features/       → your features
-  shared/         → hooks, UI components, utils
+  shared/         → UI components, utils
 ```
 
 ## Adding a Feature

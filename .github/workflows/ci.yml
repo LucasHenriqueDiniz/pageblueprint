@@ -6,8 +6,8 @@ on:
   pull_request:
     branches: [main]
 
-# A action de pnpm não recebe 'version' — ela lê o campo packageManager do
-# package.json, que é o que mantém o CI e as máquinas locais na mesma versão.
+# The pnpm action gets no 'version' input - it reads the packageManager field of
+# package.json, which is what keeps CI and local machines on the same version.
 
 jobs:
   build:
@@ -22,8 +22,8 @@ jobs:
           cache: 'pnpm'
       - run: pnpm install --frozen-lockfile
 
-      # Este repo é boilerplate de extensão Chrome e não expõe script de lint
-      # nem de typecheck próprio — o build (vite + tsc por pacote) é o portão
-      # que existe. Se um desses scripts for adicionado, entra aqui.
+      # This repo is a Chrome extension boilerplate and exposes no lint or
+      # standalone typecheck script - the build (vite + tsc per bundle) is the
+      # only gate there is. If either script is added, it goes here.
       - name: Build
         run: pnpm run build

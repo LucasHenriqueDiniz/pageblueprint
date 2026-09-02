@@ -9,7 +9,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build && vite build --config vite.background.config.ts && vite build --config vite.content.config.ts",
-    "zip": "node scripts/zip.js"
+    "zip": "node scripts/zip.js",
+    "prepare": "git config --get core.hooksPath >/dev/null 2>&1 || git config core.hooksPath .githooks 2>/dev/null || true"
   },
   "dependencies": {
     "react": "^19.1.0",
@@ -28,6 +29,6 @@
     "vite": "^6.3.6"
   },
   "engines": {
-    "node": ">=22.15.1"
+    "node": ">=24.19.0"
   }
 }
