@@ -72,7 +72,7 @@ pnpm is the package manager, pinned by the `packageManager` field; Node is pinne
 | build | `pnpm build` - `tsc` plus three vite builds (popup/options, background, content) |
 | package | `pnpm zip` - writes `dist-zip/extension-<date>.zip`, needs `pnpm build` first |
 | test | none. No runner is installed |
-| lint | no script. A `.prettierrc` is committed but prettier is not a dependency, so nothing enforces it |
+| lint | no script and no formatter. The inert `.prettierrc` was removed; prettier was never a dependency |
 | deploy | none. Nothing here is hosted; the artifact is the unpacked `dist/` or the zip |
 
 `.github/workflows/ci.yml` runs `pnpm build` and nothing else, so CI catches only what the compiler
