@@ -1,6 +1,6 @@
 {
-  "name": "chrome-extension-boilerplate-react-vite",
-  "version": "0.5.0",
+  "name": "pageblueprint",
+  "version": "1.0.0",
   "packageManager": "pnpm@11.24.0",
   "description": "chrome extension boilerplate",
   "license": "MIT",

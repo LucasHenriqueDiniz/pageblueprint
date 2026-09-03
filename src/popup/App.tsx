@@ -1,25 +1,12 @@
-import { useEffect, useState } from 'react'
 import '../features'
-import { getFeatures, isFeatureEnabled } from '@core/feature-registry'
+import { getFeatures } from '@core/feature-registry'
 import { FeatureToggle } from '@shared/ui/FeatureToggle'
 import { t } from '@shared/utils/i18n'
 
 export function Popup() {
-  const [features, setFeatures] = useState(getFeatures())
-
-  useEffect(() => {
-    const load = async () => {
-      const list = getFeatures()
-      const withStatus = await Promise.all(
-        list.map(async (f) => ({
-          ...f,
-          enabled: await isFeatureEnabled(f.id),
-        }))
-      )
-      setFeatures(withStatus)
-    }
-    load()
-  }, [])
+  // The registry is filled by the side-effect import above, before this renders.
+  // Each row's on/off state is owned by its own FeatureToggle.
+  const features = getFeatures()
 
   return (
     <div className="w-[300px] p-4 bg-white dark:bg-gray-900">

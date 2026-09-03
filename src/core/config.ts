@@ -1,5 +1,5 @@
 export const config = {
   name: 'My Extension',
-  version: '1.0.0',
-  debug: true,
+  // Vite replaces this at build time: true for `pnpm dev`, false for `pnpm build`.
+  debug: import.meta.env.DEV,
 }
