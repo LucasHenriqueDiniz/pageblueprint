@@ -15,8 +15,14 @@ card stays in whatever column it sits in — which is why it is on the first lin
 ## Delivers
 
 The question stops being implicit. Either `.mcp.json` is in the repo and the Obsidian MCP starts
-cleanly against `docs/`, or `CLAUDE.md` records that the vault stays at `pitches/` + `plans/`
-and why. Both outcomes are a delivery; only leaving it unanswered is not.
+cleanly against `docs/`, or `CLAUDE.md` carries a line beginning `**Vault decision:**` that says
+the vault stays at `pitches/` + `plans/` and why. Both outcomes are a delivery; only leaving it
+unanswered is not.
+
+That marker is not decoration. `CLAUDE.md` already contains the word *vault* twice — the
+`diagrams` row of the skills table, and the paragraph that says the vault is **not** on disk — so
+any gate that greps for `vault` passes today, before anything has been decided. The decision needs
+a string that only a decision can produce.
 
 ## Needs
 
@@ -39,27 +45,43 @@ and why. Both outcomes are a delivery; only leaving it unanswered is not.
    vault.
 
 **If declined:**
-1. `CLAUDE.md` states the decision and its reason in one or two sentences.
+1. `CLAUDE.md` states the decision and its reason in one or two sentences, on a line that
+   **starts** with `**Vault decision:**`. Prose elsewhere in the file about a vault is not the
+   decision and must not be mistaken for it.
 2. `.mcp.json` is still absent, and that absence is now deliberate and documented rather than
    pending.
 
 ## Done when
 
 ```bash
-claude mcp list 2>&1 | grep -i obsidian || grep -in "vault" CLAUDE.md
+claude mcp list 2>&1 | grep -E '^obsidian: .*Connected' \
+  || grep -n '^\*\*Vault decision:\*\*' CLAUDE.md
 ```
 
-Exits 0, printing **either** an `obsidian: … - Connected` line (adopted) **or** the `CLAUDE.md`
-line recording the refusal (declined). Two blank outputs and a non-zero exit means the decision
-still has not landed anywhere a reader can find it.
+Exits 0, printing **either** the `obsidian: … - ✔ Connected` line (adopted) **or** the
+`CLAUDE.md` line recording the refusal (declined). Two blank outputs and a non-zero exit means
+the decision still has not landed anywhere a reader can find it.
+
+Both halves are anchored on purpose:
+
+- `^obsidian: .*Connected` and not `-i obsidian`, so a server that is listed but reports
+  `✘ failed to connect` does not count as adopted — a startup failure is the exact outcome test 2
+  exists to catch.
+- `^\*\*Vault decision:\*\*` and not `-in vault`, because a bare `vault` grep matches the two
+  lines that were already in `CLAUDE.md` before this slice existed and would pass on an untouched
+  repo.
+
+Run today, on a repo where nothing has been decided, it prints nothing and exits 1.
 
 ## If stuck
 
 - `claude mcp list` cannot be run non-interactively: run
   `npx -y @bitbonsai/mcpvault@0.16.0 ./docs` directly and check it stays up instead of exiting
-  immediately, then fall back to the `grep` half of the command for the record.
+  immediately, then record the adopt outcome in `CLAUDE.md` under the same
+  `**Vault decision:**` marker so the second half of the gate still closes the card.
 - `0.16.0` is stale or the package moved: that is a research question, not a decision one — do
   not silently bump the pin inside this slice. Park it and say so.
-- The owner does not want to decide right now: that is a legitimate answer. Record "parked, no
-  vault beyond pitches and plans, revisit when `docs/` outgrows two folders" in `CLAUDE.md` and
-  take the block off. An explicit park is done; an implicit one is this card.
+- The owner does not want to decide right now: that is a legitimate answer, and it still has to
+  be written on a `**Vault decision:**` line in `CLAUDE.md` — "parked, no vault beyond pitches
+  and plans, revisit when `docs/` outgrows two folders" — before the block comes off. An explicit
+  park is done; an implicit one is this card.
